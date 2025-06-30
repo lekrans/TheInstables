@@ -14,6 +14,10 @@ class ThemeTextureProvider {
     
     init(themeName: String) {
         self.atlas = SKTextureAtlas(named: themeName)
+        if self.atlas.textureNames.isEmpty {
+            fatalError("No texture atlas found for theme \(themeName). Make sure the theme is added to the bundle and has a .atlas file")
+                
+        }
     }
     
     func texture(named name: String) -> SKTexture {
@@ -27,6 +31,14 @@ class ThemeTextureProvider {
     
     func cloud(index: Int) -> SKTexture {
         return texture(named: "cloud\(index)")
+    }
+    
+    func weaponRack() -> SKTexture {
+        return texture(named: "weaponRack")
+    }
+    
+    func weaponRackHandle() -> SKTexture {
+        return texture(named: "handle")
     }
     
     func randomCloud(cloudCount: Int = 3) -> SKTexture {

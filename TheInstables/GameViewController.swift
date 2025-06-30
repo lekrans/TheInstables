@@ -23,7 +23,7 @@ class GameViewController: UIViewController {
         skView.ignoresSiblingOrder = true
         
         // Kick off the game from the shared GameManager
-        GameManager.shared.configure(view: skView, initialScene: "BackyardScene")
+        GameManager.shared.configure(view: skView, initialScene: SceneType.backyardMayhem)
     }
     
     // Optional: lock to landscape

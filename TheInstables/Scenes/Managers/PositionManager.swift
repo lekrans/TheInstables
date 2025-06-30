@@ -8,6 +8,13 @@
 // PositionManager.swift
 // Computes positions based on scene dimensions
 
+/// =====================================================
+///    module:           PositionManager
+///    shortDesc:       <#shortDescr#>
+///    description:      <#description#>
+/// =====================================================
+
+
 import CoreGraphics
 
 enum Anchor {
@@ -18,17 +25,17 @@ enum Anchor {
 
 class PositionManager {
     private let sceneSize: CGSize
-    private let groundHeight: CGFloat
+    private let groundTileSize: CGSize
     private let safeMargin: CGFloat
     
-    init(sceneSize: CGSize, groundHeight: CGFloat = 64, safeMargin: CGFloat = 20) {
-        self.sceneSize = sceneSize
-        self.groundHeight = groundHeight
-        self.safeMargin = safeMargin
+    init(resourceData: ResourceData) {
+        self.sceneSize = resourceData.sceneSize
+        self.groundTileSize = resourceData.groundTileSize
+        self.safeMargin = resourceData.safeMargin
     }
-    
+
     func ground(anchor: Anchor) -> CGPoint {
-        let y = groundHeight / 2
+        let y = self.groundTileSize.height / 2
         let x: CGFloat
         switch anchor {
         case .left: x = sceneSize.width * 0.1
@@ -50,7 +57,7 @@ class PositionManager {
     }
     
     func fullHeightFromGround() -> CGFloat {
-        return sceneSize.height - groundHeight
+        return sceneSize.height - groundTileSize.height
     }
     
     // Optional: relative placement within a layer height

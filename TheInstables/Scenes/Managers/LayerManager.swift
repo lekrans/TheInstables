@@ -12,12 +12,24 @@ import SpriteKit
 
 enum RenderLayer: CGFloat, CaseIterable {
     case background = 0
-    case terrain     = 100
-    case objects     = 200
-    case player      = 300
-    case particles   = 400
+    case terrain    = 100
+    case objects    = 200
+    case player     = 300
+    case particles  = 400
     case hud         = 1000
     case debug       = 10_000 // always on top unless intentianally below HUD
+    
+    var name: String {
+        switch self {
+            case .background: "layer_background"
+            case .terrain: "layer_terrain"
+            case .objects: "layer_objects"
+            case .player: "layer_player"
+            case .particles: "layer_particles"
+            case .hud: "layer_hud"
+            case .debug: "layer_debug"
+        }
+    }
 }
 
 class LayerManager {
@@ -32,6 +44,7 @@ class LayerManager {
     private func setupLayers() {
         for layer in RenderLayer.allCases {
             let node = SKNode()
+            node.name = layer.name
             node.zPosition = layer.rawValue
             parent.addChild(node)
             layers[layer] = node

@@ -17,8 +17,10 @@ final class BombLauncher: SKNode {
     init(theme: String = "Default") {
         super.init()
         self.theme = theme
+        self.name = "bombLauncher"
         setupGraphics()
     }
+    
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -30,7 +32,9 @@ final class BombLauncher: SKNode {
         let slingImage = "launcherSling_\(theme)"
         
         armSprite = SKSpriteNode(imageNamed: armImage)
+        armSprite.name = "arm"
         slingSprite = SKSpriteNode(imageNamed: slingImage)
+        slingSprite.name = "sling"
         
         armSprite.position = .zero
         slingSprite.position = CGPoint(x: 0, y: 10)

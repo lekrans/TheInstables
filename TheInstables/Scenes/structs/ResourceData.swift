@@ -8,5 +8,7 @@
 import CoreGraphics
 
 struct ResourceData {
-    var groundSize: CGSize
+    var groundTileSize: CGSize = CGSize(width: 64, height: 6)
+    var sceneSize: CGSize
+    var safeMargin: CGFloat = 20
 }

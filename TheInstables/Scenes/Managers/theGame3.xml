@@ -1,0 +1,57 @@
+
+<mxfile host="app.diagrams.net">
+    <diagram name="Swimlane" id="swim-lane">
+        <mxGraphModel>
+            <root>
+                <!-- Swimlane Containers -->
+                <mxCell id="2" value="GameManager" style="swimlane;fillColor=#ffe0b2;strokeColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="0" y="0" width="260" height="600" as="geometry" />
+                </mxCell>
+                <mxCell id="3" value="SceneManager" style="swimlane;fillColor=#e0f7fa;strokeColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="260" y="0" width="260" height="600" as="geometry" />
+                </mxCell>
+                <mxCell id="4" value="HUDManager" style="swimlane;fillColor=#f3e5f5;strokeColor=#000000;" vertex="1" parent="1">
+                    <mxGeometry x="520" y="0" width="260" height="600" as="geometry" />
+                </mxCell>
+                
+                <!-- GameManager Events -->
+                <mxCell id="10" value="configure(view:)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#000000;" vertex="1" parent="2">
+                    <mxGeometry x="40" y="80" width="180" height="40" as="geometry" />
+                </mxCell>
+                <mxCell id="11" value="onSceneDidLoad(scene:)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff3e0;strokeColor=#000000;" vertex="1" parent="2">
+                    <mxGeometry x="40" y="160" width="180" height="40" as="geometry" />
+                </mxCell>
+                
+                <!-- SceneManager Events -->
+                <mxCell id="12" value="loadScene(name:)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0f2f1;strokeColor=#000000;" vertex="1" parent="3">
+                    <mxGeometry x="40" y="120" width="180" height="40" as="geometry" />
+                </mxCell>
+                <mxCell id="13" value="prepare(scene:)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e0f2f1;strokeColor=#000000;" vertex="1" parent="3">
+                    <mxGeometry x="40" y="200" width="180" height="40" as="geometry" />
+                </mxCell>
+                
+                <!-- HUDManager Events -->
+                <mxCell id="14" value="attach(to:camera)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ede7f6;strokeColor=#000000;" vertex="1" parent="4">
+                    <mxGeometry x="40" y="120" width="180" height="40" as="geometry" />
+                </mxCell>
+                <mxCell id="15" value="showGameUI()" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ede7f6;strokeColor=#000000;" vertex="1" parent="4">
+                    <mxGeometry x="40" y="200" width="180" height="40" as="geometry" />
+                </mxCell>
+                
+                <!-- Arrows for communication -->
+                <mxCell id="20" style="endArrow=block;strokeColor=#000000;" edge="1" parent="1" source="10" target="12">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="21" style="endArrow=block;strokeColor=#000000;" edge="1" parent="1" source="12" target="11">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="22" style="endArrow=block;strokeColor=#000000;" edge="1" parent="1" source="11" target="14">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+                <mxCell id="23" style="endArrow=block;strokeColor=#000000;" edge="1" parent="1" source="14" target="15">
+                    <mxGeometry relative="1" as="geometry" />
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>

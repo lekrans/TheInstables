@@ -19,22 +19,32 @@ class HUDManager {
     private let gameLayer = SKNode()
     private let setupScreenLayer = SKNode()
     
-    init(sceneSize: CGSize) {
-        self.sceneSize = sceneSize
-        hudNode.zPosition = 1000
-        
+    private func setupLayers() {
+        hudNode.name = "HUDNode"
         gameLayer.name = "gameLayer"
         setupScreenLayer.name = "setupScreenLayer"
+        
         hudNode.addChild(gameLayer)
         hudNode.addChild(setupScreenLayer)
         
         setupScreenLayer.isHidden = true
+        gameLayer.isHidden = true
+    }
+    
+    init(sceneSize: CGSize) {
+        self.sceneSize = sceneSize
+        hudNode.zPosition = RenderLayer.hud.rawValue
+        setupLayers()
     }
     
     func getNode() -> SKNode {
         return hudNode
     }
     
+    func getGameLayer() -> SKNode {
+        return gameLayer
+    }
+        
     func showGameHUD() {
         gameLayer.isHidden = false
         setupScreenLayer.isHidden = true

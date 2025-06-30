@@ -10,73 +10,19 @@ import SpriteKit
 // BackyardScene.swift
 // The first playable scene, with the overgrown garden theme
 class BackyardScene: BaseGameScene {
-//    var layerManager: LayerManager!
-//    var positionManager: PositionManager!
-    private let cameraNode = SKCameraNode()
-    
-    private let theme: ThemeTextureProvider = ThemeTextureProvider(themeName: "BackyardMayhem")
-    
-    override func didMove(to view: SKView) {
-        backgroundColor = .cyan // Placeholder background
-        physicsWorld.gravity = CGVector(dx: 0, dy: -9.8)
-    }
-    
-    override func loadSceneContent() {
-        setupCamera()
-        setupGround()
-        setupInitialObjects()
-    }
-    
-//    func configure(with layerManager: LayerManager, positionManager: PositionManager) {
-//        self.layerManager = layerManager
-//        self.positionManager = positionManager
-//        
-//    }
-    
-    private func setupPositionManager() {
-        
-    }
-    
-    private func setupCamera() {
-        addChild(cameraNode)
-        print("cameranode \(cameraNode)")
-        camera = cameraNode
-        cameraNode.position = CGPoint(x: size.width / 2, y: size.height / 2)
-        cameraNode.setScale(1) // Adjust zoom level as needed
-    }
 
-    
-    private func setupGround() {
-        print("Setting up ground")
-        let groundTile = SKSpriteNode(texture: theme.ground(index: 0))
-        print("groundTile size \(groundTile.size)")
-        groundTile.position = positionManager.ground(anchor: .right)
-        groundTile.physicsBody = SKPhysicsBody(rectangleOf: groundTile.size)
-        groundTile.physicsBody?.isDynamic = false
-        print("Before adding to layerManager")
-        layerManager.add(groundTile, to: .terrain)
-        
-        
-        
-        //        let tileSize = CGSize(width: 64, height: 64)
-        //        let tileCount = Int(size.width / tileSize.width) + 1
-        //
-        //        for i in 0..<tileCount {
-        //            let tile = SKSpriteNode(texture: theme.ground(index: 1))
-        //
-        //            tile.size = tileSize
-        //            tile.position = CGPoint(x: CGFloat(i) * tileSize.width + tileSize.width / 2,
-        //                                    y: tileSize.height / 2)
-        //            tile.physicsBody = SKPhysicsBody(rectangleOf: tileSize)
-        //            tile.physicsBody?.isDynamic = false
-        //            addChild(tile)
-        //        }
-
-        
+    override func setupResourceData() {
+        self.resourceData = ResourceData(
+            groundTileSize: CGSize(width: 64, height: 64),
+            sceneSize: size,
+            safeMargin: 20
+        )
     }
     
-    private func setupInitialObjects() {
+    
+    override func setupInitialObjects() {
         // Future: gnomes, boxes, bombs
+        print("In backyardScene setupInitialObjects")
     }
 }
 
