@@ -39,7 +39,7 @@ class BaseGameScene: SKScene {
         setupCamera()
         setupGround()
         setupInitialObjects()
-        setupWeaponRack()
+        setupGameHUD()
         print("EXIT: loadSceneContent")
 //         fatalError("onConfigureDone not overridden")
     }
@@ -93,14 +93,15 @@ class BaseGameScene: SKScene {
     
     
     // MARK: - Weapon rack
-    func setupWeaponRack() {
+    func setupGameHUD() {
         guard let camera = camera else {
             print(" Camera not set up yet")
             return
         }
         print("setupWeaponRack view.size \(size)")
-        weaponRack = WeaponRack(theme: theme, viewSize: size)
-        camera.addChild(weaponRack.node)
+        
+//        weaponRack = WeaponRack(theme: theme, viewSize: size)
+//        camera.addChild(weaponRack.node)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -109,18 +110,17 @@ class BaseGameScene: SKScene {
         
         let nodes = self.nodes(at: location)
         
-        for node in nodes {
-            print("node name \(node.name ?? "")")
-            if node.name == NodeNames.weaponRackHandle.name {
-                weaponRack.toggleWeaponRack()
-                return
-            } else if node.name?.starts(with: "weapon_") == true {
-                // Handle weapon selection
-                print("Selected: \(node.name ?? "")")
-                weaponRack.toggleWeaponRack()
-                return
-            }
-        }
+//        for node in nodes {
+//            if node.name == NodeNames.weaponRackHandle.name {
+//                weaponRack.toggleWeaponRack()
+//                return
+//            } else if node.name?.starts(with: "weapon_") == true {
+//                // Handle weapon selection
+//                print("Selected: \(node.name ?? "")")
+//                weaponRack.toggleWeaponRack()
+//                return
+//            }
+//        }
     }
 }
 

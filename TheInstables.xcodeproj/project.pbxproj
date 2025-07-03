@@ -30,6 +30,11 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
+		E12A568B2E17250B00F23409 /* Sounds */ = {
+			isa = PBXFileSystemSynchronizedRootGroup;
+			path = Sounds;
+			sourceTree = "<group>";
+		};
 		E1B3E79C2DF06E0900F68673 /* TheInstables */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = TheInstables;
@@ -79,6 +84,7 @@
 				E1B3E7B62DF06E0B00F68673 /* TheInstablesTests */,
 				E1B3E7C02DF06E0B00F68673 /* TheInstablesUITests */,
 				E1B3E79B2DF06E0900F68673 /* Products */,
+				E12A568B2E17250B00F23409 /* Sounds */,
 			);
 			sourceTree = "<group>";
 		};
@@ -108,6 +114,7 @@
 			dependencies = (
 			);
 			fileSystemSynchronizedGroups = (
+				E12A568B2E17250B00F23409 /* Sounds */,
 				E1B3E79C2DF06E0900F68673 /* TheInstables */,
 			);
 			name = TheInstables;

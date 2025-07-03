@@ -13,6 +13,9 @@ enum NodeNames: String {
     case weaponRackHandle
     case bomb
     case ground
+    case HUDNode
+    case gameHUDNode
+    case settingsHUDNode
 }
 
 extension NodeNames {

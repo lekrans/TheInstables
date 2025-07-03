@@ -18,11 +18,13 @@ final class GameManager {
     
     private(set) var hudManager: HUDManager!
     private(set) var sceneManager: SceneManager!
+    private var view: SKView?
     
     private init() { }
     
     func configure(view: SKView, initialScene: SceneType) {
         print("initial scene: \(initialScene)")
+        self.view = view
         self.createManagers(for: view)
         
         // Load initial scene
@@ -32,7 +34,7 @@ final class GameManager {
     
     private func createManagers(for view: SKView) {
         sceneManager = SceneManager(skView: view)
-        hudManager = HUDManager(sceneSize: view.bounds.size)
+//        hudManager = HUDManager(sceneSize: view.bounds.size)
     }
     
     
@@ -78,6 +80,8 @@ extension GameManager: SceneLoadingDelegate {
         
         
         // Create managers for this scene
+        hudManager = HUDManager(theme: scene.theme, viewSize: view!.bounds.size)
+
         let layerManager = LayerManager(parent: scene)
         let positionManager = PositionManager(resourceData: scene.resourceData)
         

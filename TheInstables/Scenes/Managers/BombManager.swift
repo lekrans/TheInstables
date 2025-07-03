@@ -59,3 +59,7 @@ final class BombLauncher: SKNode {
     }
 }
 
+
+//class BombManager {
+//    var launcher: BombLauncher
+//}
