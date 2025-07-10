@@ -10,7 +10,7 @@
 import SpriteKit
 
 class ThemeTextureProvider {
-    let weapons = ["Bomb", "Grenade", "FireBomb", "WaterBomb", "BatteryRam", "ScatterBomb", "Arrow"]
+    let weapons = ["Bomb", "Grenade", "FireBomb", "WaterBomb", "BatteryRamFat", "ScatterBomb", "Spear", "wreckingBall"]
     private let atlas: SKTextureAtlas
     
     init(themeName: String) {
@@ -35,7 +35,7 @@ class ThemeTextureProvider {
     }
     
     func weaponRack() -> SKTexture {
-        return texture(named: "weaponRack")
+        return texture(named: "weaponRackV2_9")
     }
     
     func weaponRackHandle() -> SKTexture {
@@ -48,6 +48,18 @@ class ThemeTextureProvider {
         } else {
             return texture(named: weapons[index])
         }
+    }
+    
+    func weaponRackSelectedItem(at index: Int) -> SKTexture {
+        if index >= weapons.count {
+            return texture(named: "pot_of_gold")
+        } else {
+            return texture(named: "\(weapons[index])Selected")
+        }
+    }
+    
+    func weaponRackUnknownItem() -> SKTexture {
+        return texture(named: "unknown")
     }
     
     func randomCloud(cloudCount: Int = 3) -> SKTexture {
